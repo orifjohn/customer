@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer add</title>
+</head>
+<body>
+<form action="{% url 'customer-add-url' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="first_name" value="{{ customer.first_name }}">
+    <input type="text" name="last_name" value="{{ customer.last_name }}">
+    <input type="text" name="phone_number" value="{{ customer.phone_number }}">
+    <textarea name="address" >{{ customer.address }}</textarea>
+    <button type="submit" class="btn btn-success">Add</button>
+</form>
+</body>
+</html>

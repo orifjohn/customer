@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div id="wrapper">
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Customers</a>
+            <a href="{% url 'customer-add-url' %}" >Add customer</a>
+
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'logout-url' %}">LOG OUT</a>
+            {% else %}
+                <a href="{% url 'login-url' %}">LOG IN</a>
+            {% endif %}
+
+            <form class="d-flex" method="GET" action="{% url 'index-url' %}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        {% if customers %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for customer in customers %}
+                    <tr>
+                        <th scope="row">{{ customer.id }}</th>
+                        <td>{{ customer.first_name }}</td>
+                        <td>{{ customer.last_name }}</td>
+                        <td>{{ customer.phone_number }}</td>
+                        <td>{{ customer.address }}</td>
+                        <td style="display: flex">
+                            <a href="{% url 'customer-edit-url' customer_id=customer.id %} " class="btn btn-success" style="margin-right: 2px">edit</a>
+                            <form action="{% url 'customer-delete-url' customer_id=customer.id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        {% else %}
+            <h1 style="text-align: center">Customers not found :(</h1>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>
