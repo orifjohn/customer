@@ -28,9 +28,8 @@ def customer_add_view(request):
     if request.method == 'POST':
         form = CustomerForm(request.POST)
         if form.is_valid():
-            print(form.cleaned_data)
             customer = Customer(**form.cleaned_data)
-
+            customer.user = request.user
             customer.save()
             return redirect(reverse('index-url'))
     return render(request, 'main/customer_add.html', {'form': form})
@@ -45,12 +44,13 @@ def customer_delete_view(request, customer_id):
 
 def customer_edit_view(request, customer_id):
     customer = get_object_or_404(Customer, id=customer_id)
-
+    form = CustomerForm()
     if request.method == 'POST':
-        for key, value in request.POST.items():
-            setattr(customer, key, value)
-        customer.save()
-        return redirect(reverse('index-url'))
+        if form.is_valid():
+            for key, value in request.POST.items():
+                setattr(customer, key, value)
+            customer.save()
+            return redirect(reverse('index-url'))
     return render(request, 'main/customer_edit.html', {'customer': customer})
 
 
@@ -61,13 +61,11 @@ def login_view(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             user = authenticate(**form.cleaned_data)
-            print(user)
             if user:
                 login(request, user)
                 return redirect(reverse('index-url'))
 
             # print(form.cleaned_data)
-
     return render(request, 'main/login.html', {'form': form})
 
 

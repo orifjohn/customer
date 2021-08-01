@@ -1,5 +1,4 @@
-from django.core.exceptions import ValidationError
-from django.forms import Form, fields, widgets, forms
+from django.forms import Form, fields, widgets
 
 
 class CustomerForm(Form):
@@ -16,9 +15,9 @@ class CustomerForm(Form):
         if phone_number:
             if phone_number[:4] != '+998':
                 self.add_error('phone_number', 'Please enter uzb numbers (998)')
-            if phone_number[4:6] not in ['33', '99', '98']:
+            if phone_number[4:6] not in ['33', '99', '98', '97', '90', '91', '88', '93', '94', '71', '66', '74']:
                 self.add_error('phone_number', 'Enter an available numbers')
-            if phone_number[1:].isdigit():
+            if phone_number[1:].isdigit() == False:
                 self.add_error('phone_number', 'Please, enter the numbers')
         return cd
 
@@ -26,4 +25,3 @@ class CustomerForm(Form):
 class LoginForm(Form):
     username = fields.CharField(max_length=100)
     password = fields.CharField(max_length=100)
-
