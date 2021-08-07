@@ -25,3 +25,4 @@ class CustomerForm(Form):
 class LoginForm(Form):
     username = fields.CharField(max_length=100)
     password = fields.CharField(max_length=100)
+
