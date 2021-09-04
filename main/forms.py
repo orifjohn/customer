@@ -1,4 +1,5 @@
 from django.forms import Form, fields, widgets
+from django.contrib.auth.models import User
 
 
 class CustomerForm(Form):
@@ -26,3 +27,19 @@ class LoginForm(Form):
     username = fields.CharField(max_length=100)
     password = fields.CharField(max_length=100)
 
+
+class RegisterForm(Form):
+    username = fields.CharField(max_length=100)
+    password = fields.CharField(max_length=100)
+    password2 = fields.CharField(max_length=100)
+
+    def clean(self):
+        cd = self.cleaned_data
+
+        if cd.get('password', None) != cd.get('password2', None):
+            self.add_error('password', 'Password not matched')
+            self.add_error('password2', 'Password not matched')
+        if User.objects.filter(username=cd['username']).count() > 0:
+            self.add_error('username', 'User already exists')
+
+        return cd
