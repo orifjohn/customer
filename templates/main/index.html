@@ -10,11 +10,11 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand">Customers</a>
-            <a href="{% url 'customer-add-url' %}" >Add customer</a>
+            <a class="navbar-brand"><h3>Customers</h3></a>
+            <a href="{% url 'customer-add-url' %}" class="btn btn-primary">Add customer</a>
 
             {% if request.user.is_authenticated %}
-                <a href="{% url 'logout-url' %}">LOG OUT</a>
+                <a href="{% url 'logout-url' %}" class="btn btn-info">LOG OUT</a>
             {% else %}
                 <a href="{% url 'login-url' %}">LOG IN</a>
             {% endif %}
@@ -47,7 +47,7 @@
                         <td>{{ customer.phone_number }}</td>
                         <td>{{ customer.address }}</td>
                         <td style="display: flex">
-                            <a href="{% url 'customer-edit-url' customer_id=customer.id %} " class="btn btn-success" style="margin-right: 2px">edit</a>
+                            <a href="{% url 'customer-edit-url' customer_id=customer.id %} " class="btn btn-light" style="margin-right: 2px">edit</a>
                             <form action="{% url 'customer-delete-url' customer_id=customer.id %}" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">delete</button>

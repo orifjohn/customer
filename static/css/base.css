@@ -1,6 +1,13 @@
+a {
+    color: red;
+}
+
 body{
-    /*background-color: red;*/
-    background-image: url("../img/bg-01.jpg");
-    /*background-size: cover;*/
-    /*background-repeat: no-repeat;*/
+    background-image: url("../img/blue.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+td {
+    color: white;
 }
