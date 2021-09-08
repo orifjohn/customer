@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 {% block title %}
     Login
@@ -7,7 +8,7 @@
 
 
 {% block content %}
-
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque incidunt obcaecati quisquam recusandae sapiente vitae voluptatibus! Alias deleniti molestias nostrum perferendis placeat quis vitae! Consectetur eius laudantium sapiente soluta voluptates.</h1>
     <form action="{% url 'login-url' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
