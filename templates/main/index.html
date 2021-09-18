@@ -1,7 +1,14 @@
 {% extends "main/../base.html" %}
+{% load static %}
 
 {% block title %}
     Customer app
+{% endblock %}1
+
+{% block extra_head %}
+
+    <link rel="icon" type="image/png" href="{% static '../../static/img/icons/customer.png' %}">
+    <link rel="stylesheet" href="{% static '../../static/css/index.css' %}">
 {% endblock %}
 
 {% block content %}

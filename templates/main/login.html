@@ -1,30 +1,85 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load i18n %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
 {% block title %}
     Login
 {% endblock %}
-
-
-{% block content %}
-    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque incidunt obcaecati quisquam recusandae sapiente vitae voluptatibus! Alias deleniti molestias nostrum perferendis placeat quis vitae! Consectetur eius laudantium sapiente soluta voluptates.</h1>
-    <form action="{% url 'login-url' %}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign In</button>
-        <a href="{% url 'register-url' %}">Sign up</a>
-    </form>
-
+{% block extra_head %}
+    <link rel="icon" type="image/png" href="{% static '../../static/img/icons/favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static "../../static/css/main.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "../../static/css/util.css" %}">
 {% endblock %}
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Title</title>#}
-{#</head>#}
-{#<body>#}
-{##}
+{% block content %}
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('../../static/img/bg-01.jpg');">
+            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                <form class="login100-form validate-form flex-sb flex-w" action="{% url 'login-url' %}" method="POST">
+                    {% csrf_token %}
+                    {#                {{ form.as_p }}#}
 
-{#</body>#}
-{#</html>#}
+                    <span class="login100-form-title p-b-53">
+						Sign In With
+					</span>
+
+                    <a href="#" class="btn-face m-b-20">
+                        <i class="fa fa-facebook-official"></i>
+                        Facebook
+                    </a>
+
+                    <a href="#" class="btn-google m-b-20">
+                        <img src="{% static '../../static/img/icons/icon-google.png' %}" alt="GOOGLE">
+                        Google
+                    </a>
+
+
+                    <div class="p-t-31 p-b-9">
+                        <label for="id_username" class="txt1">Username</label>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Username is required">
+                        <input id="id_username" class="input100 form-control" type="text" name="username">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="p-t-31 p-b-9">
+                        <label for="id_password" class="txt1">Password</label>
+
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input id="id_password" class="input100 form-control" type="password" name="password">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn">
+                            Sign In
+                        </button>
+                    </div>
+
+                    <div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Not a member?
+						</span>
+
+                        <a href="{% url 'register-url' %}" class="txt2 bo1">
+                            Sign up now
+                        </a>
+                    </div>
+
+                    {% if form.errors %}
+                        <p>
+                            Your username and password didn't match.
+                            Please try again.
+                        </p>
+                    {% endif %}
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+
+    <script src="{% static '../../static/js/main.js' %}"></script>
+{% endblock %}
