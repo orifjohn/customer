@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Register page</h1>
-<form action="{% url 'register-url' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-</form>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+    Register page
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Register page</h1>
+
+        <form action="{% url 'register-url' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Sign up</button>
+            <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+        </form>
+
+    </div>
+{% endblock %}

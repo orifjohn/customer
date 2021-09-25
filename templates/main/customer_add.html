@@ -1,17 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Customer add</title>
-</head>
-<body>
-<form action="{% url 'customer-add-url' %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name="first_name" value="{{ customer.first_name }}">
-    <input type="text" name="last_name" value="{{ customer.last_name }}">
-    <input type="text" name="phone_number" value="{{ customer.phone_number }}">
-    <textarea name="address" >{{ customer.address }}</textarea>
-    <button type="submit" class="btn btn-success">Add</button>
-</form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    Customer add
+{% endblock %}
+
+{% block content %}
+    <style>
+        body{
+            background-color: lightblue;
+        }
+    </style>
+    <div class="container">
+        <form action="{% url 'customer-add-url' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First name</label>
+                <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Firstname"
+                       value="{{ customer.first_name }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last name</label>
+                <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Lastname"
+                       value="{{ customer.last_name }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="phone_number" class="form-label">Phone number</label>
+                <input type="text" name="phone_number" class="form-control" id="phone_number" placeholder="Phone number"
+                       value="{{ customer.phone_number }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address ...</label>
+                <textarea name="address" class="form-control" id="address">{{ customer.address }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+    </div>
+{% endblock %}
+
+

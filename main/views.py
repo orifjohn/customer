@@ -64,7 +64,7 @@ def register_view(request):
                 username=form.cleaned_data.get("username"),
                 password=form.cleaned_data.get("password")
             )
-            login(request, user)
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect(reverse('login-url'))
     return render(request, 'main/register.html', {'form': form})
 

@@ -3,72 +3,74 @@
 
 {% block title %}
     Customer app
-{% endblock %}1
+{% endblock %}
 
 {% block extra_head %}
-
+    <link rel="stylesheet" href="{% static '../../static/fonts/font-awesome-4.7.0/css/font-awesome.css' %}">
     <link rel="icon" type="image/png" href="{% static '../../static/img/icons/customer.png' %}">
     <link rel="stylesheet" href="{% static '../../static/css/index.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div id="wrapper">
+    <div id="wrapper">
 
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand"><h3>Customers</h3></a>
-            <a href="{% url 'customer-add-url' %}" class="btn btn-primary">Add customer</a>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index-url' %}"><h3>Customers</h3></a>
+                <a href="{% url 'customer-add-url' %}" class="btn btn-success">Add customer</a>
 
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'logout-url' %}" class="btn btn-info">LOG OUT</a>
-            {% else %}
-                <a href="{% url 'login-url' %}">LOG IN</a>
-            {% endif %}
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout-url' %}" class="btn btn-success">LOG OUT</a>
+                {% else %}
+                    <a href="{% url 'login-url' %}">LOG IN</a>
+                {% endif %}
 
-            <form class="d-flex" method="GET" action="{% url 'index-url' %}">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-    <div class="container">
-        {% if customers %}
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Edit</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for customer in customers %}
+                <form class="d-flex" method="GET" action="{% url 'index-url' %}">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                           name="search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container">
+            {% if customers %}
+                <table class="table">
+                    <thead>
                     <tr>
-                        <th scope="row">{{ customer.id }}</th>
-                        <td>{{ customer.first_name }}</td>
-                        <td>{{ customer.last_name }}</td>
-                        <td>{{ customer.phone_number }}</td>
-                        <td>{{ customer.address }}</td>
-                        <td style="display: flex">
-                            <a href="{% url 'customer-edit-url' customer_id=customer.id %} " class="btn btn-light" style="margin-right: 2px">edit</a>
-                            <form action="{% url 'customer-delete-url' customer_id=customer.id %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">delete</button>
-                            </form>
-                        </td>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Edit</th>
                     </tr>
-                {% endfor %}
+                    </thead>
+                    <tbody>
+                    {% for customer in customers %}
+                        <tr>
+                            <th scope="row">{{ customer.id }}</th>
+                            <td>{{ customer.first_name }}</td>
+                            <td>{{ customer.last_name }}</td>
+                            <td>{{ customer.phone_number }}</td>
+                            <td>{{ customer.address }}</td>
+                            <td style="display: flex">
+                                <a href="{% url 'customer-edit-url' customer_id=customer.id %} " class="btn btn-light"
+                                   style="margin-right: 2px">edit</a>
+                                <form action="{% url 'customer-delete-url' customer_id=customer.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
 
-                </tbody>
-            </table>
-        {% else %}
-            <h1 style="text-align: center">Customers not found :(</h1>
-        {% endif %}
+                    </tbody>
+                </table>
+            {% else %}
+                <h1 style="text-align: center">Customers not found :(</h1>
+            {% endif %}
+        </div>
+
     </div>
-
-</div>
 {% endblock %}

@@ -10,8 +10,7 @@ class CustomerForm(Form):
 
     def clean(self):
         cd = self.cleaned_data
-        # if '$' not in cd.get('address'):
-        #     self.add_error('address', 'Dollar bolish kerak')
+
         phone_number = cd.get('phone_number', None)
         if phone_number:
             if phone_number[:4] != '+998':
