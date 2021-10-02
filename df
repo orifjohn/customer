@@ -1,0 +1,71 @@
+[33mcommit 2a633d390c4707fd9a1a225c16e6fee0c0b2fe6c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: your_github_username <your_github_email>
+Date:   Sat Oct 2 09:43:15 2021 +0500
+
+    some
+
+[33mcommit 762eea368b60e196cc1746abfce7ac0aa2d86400[m
+Author: your_github_username <your_github_email>
+Date:   Sat Sep 25 19:38:09 2021 +0500
+
+    updated all files
+
+[33mcommit 026d9a8aad732c22d02868fe024d4a3fd91a3d27[m
+Author: your_github_username <your_github_email>
+Date:   Sun Sep 19 00:26:26 2021 +0500
+
+    deleted venv
+
+[33mcommit 05d32e2618e9db7d48e276c82b3673bf09d4733a[m
+Author: abdirayimov <orifjon12032000@gmail.com>
+Date:   Sat Sep 18 14:35:04 2021 +0500
+
+    changed some files
+
+[33mcommit 1ab044a69606dff8c5b0a330bc3fcc950cd4faaa[m
+Author: abdirayimov <orifjon12032000@gmail.com>
+Date:   Sat Sep 18 14:23:37 2021 +0500
+
+    created css files
+
+[33mcommit e35746a47291081bfd5a891ad8bfa5d6f5b06a41[m
+Author: abdirayimov <orifjon12032000@gmail.com>
+Date:   Wed Sep 8 08:52:35 2021 +0500
+
+    added style.css
+
+[33mcommit bff56f58fa1651f11e26da8c377a08b984e231c0[m
+Author: orifjon_abdirayimov <orifjon12032000@gmail.com>
+Date:   Mon Sep 6 14:34:35 2021 +0500
+
+    changed some files
+
+[33mcommit fef6ef0dd968ee5c1e75e615b9b78551690dcbaf[m
+Author: orifjon_abdirayimov <orifjon12032000@gmail.com>
+Date:   Sat Sep 4 15:23:52 2021 +0500
+
+    added some new templates
+
+[33mcommit e318cd1c961c5255d5e3e279674d1bb27fe3f361[m
+Author: orifjon_abdirayimov <orifjon12032000@gmail.com>
+Date:   Sat Aug 7 10:08:04 2021 +0500
+
+    create requirements.txt
+
+[33mcommit 2aff0cb25542411bfa5539b462efabbd15fccab2[m
+Author: orifjon_abdirayimov <orifjon12032000@gmail.com>
+Date:   Sat Aug 7 10:02:51 2021 +0500
+
+    update
+
+[33mcommit cb6e42d3c70b804732092cf5355cb863ed923e08[m
+Author: orifjon_abdirayimov <orifjon12032000@gmail.com>
+Date:   Sun Aug 1 19:12:07 2021 +0500
+
+    update
+
+[33mcommit 2d7609cbddbf45cef1073ebd7ae64272d95247c1[m
+Author: orifjon_abdirayimov <orifjon12032000@gmail.com>
+Date:   Tue Jul 27 20:23:59 2021 +0500
+
+    created app
