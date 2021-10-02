@@ -133,7 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -156,3 +157,5 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '792808238076-kafku66hsemkt24bc607lsis7k8d38rn.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81KSZ3CURrl3_uggMoXs8e3v'
 
+SOCIAL_AUTH_FACEBOOK_KEY = '290559955903222'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'd5097d5e94bd789dc04252a45189df1c'
