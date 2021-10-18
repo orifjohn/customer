@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import os.path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +14,7 @@ SECRET_KEY = 'django-insecure-#e_h5mx&mbpozv8s9hccfcx)5alig$6y)xe0q!pikh&bbx*_sj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -120,11 +121,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -134,7 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-    'social_core.backends.facebook.FacebookOAuth2',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -151,14 +153,12 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 3
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'index-url'
+LOGOUT_REDIRECT_URL = 'login-url'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '792808238076-kafku66hsemkt24bc607lsis7k8d38rn.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81KSZ3CURrl3_uggMoXs8e3v'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '290559955903222'
+LOGIN_URL = 'login-url'
+LOGOUT_URL = 'logout-url'
 
-
-
-SOCIAL_AUTH_FACEBOOK_SECRET = 'd5097d5e94bd789dc04252a45189df1c'
