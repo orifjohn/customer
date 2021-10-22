@@ -5,9 +5,9 @@
     Login
 {% endblock %}
 {% block extra_head %}
-    <link rel="icon" type="image/png" href="{% static '../../static/img/icons/favicon.ico' %}">
-    <link rel="stylesheet" type="text/css" href="{% static "../../static/css/main.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "../../static/css/util.css" %}">
+    <link rel="icon" type="image/png" href="{% static '../static/img/icons/favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/util.css' %}">
 {% endblock %}
 {% block content %}
     <div class="limiter">
@@ -26,7 +26,7 @@
                     </a>
 
                     <a href="{% provider_login_url 'google' %}" class="btn-google m-b-20">
-                        <img src="{% static '../../static/img/icons/icon-google.png' %}" alt="GOOGLE">
+                        <img src="{% static '../static/img/icons/icon-google.png' %}" alt="GOOGLE">
                         Google
                     </a>
                     <div class="p-t-31 p-b-9">
@@ -80,5 +80,4 @@
     <style>
 
     </style>
-    <script src="{% static '../../static/js/main.js' %}"></script>
 {% endblock %}
