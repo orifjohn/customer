@@ -60,12 +60,13 @@ def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(
-                username=form.cleaned_data.get("username"),
-                password=form.cleaned_data.get("password")
-            )
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect(reverse('login-url'))
+            if form.cleaned_data['password'] == form.cleaned_data['password2']:
+                user = User.objects.create_user(
+                    username=form.cleaned_data.get("username"),
+                    password=form.cleaned_data.get("password")
+                )
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return redirect(reverse('login-url'))
     return render(request, 'main/register.html', {'form': form})
 
 

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
     Register page
 {% endblock %}
-
+{% block extra_head %}
+    <link rel="icon" type="image/png" href="{% static "../static/img/icons/edit.png" %}">
+{% endblock %}
 {% block content %}
 
     <div class="container">
@@ -11,9 +13,23 @@
 
         <form action="{% url 'register-url' %}" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input name="username" type="text" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Enter username</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Retry Password</label>
+                <input name="password2" type="password" class="form-control" id="exampleInputPassword1">
+            </div>
             <button type="submit" class="btn btn-success">Sign up</button>
-            <p class="text-center">If you already have an account, <a href="{% url 'login-url' %}">login</a> instead.</p>
+            <p class="text-center">If you already have an account, <a href="{% url 'login-url' %}">login</a> instead.
+            </p>
         </form>
 
     </div>
