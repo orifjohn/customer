@@ -151,7 +151,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SITE_ID = 3
+SITE_ID = 2
 
 LOGIN_REDIRECT_URL = 'index-url'
 LOGOUT_REDIRECT_URL = 'login-url'
@@ -161,4 +161,3 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81KSZ3CURrl3_uggMoXs8e3v'
 
 LOGIN_URL = 'login-url'
 LOGOUT_URL = 'logout-url'
-
