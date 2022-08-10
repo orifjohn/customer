@@ -68,23 +68,10 @@ WSGI_APPLICATION = 'djangocustapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'djangoapp',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'postgres',
-
-        'HOST': '127.0.0.1',
-
-        'PORT': '5432',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-
 }
 
 # Password validation
@@ -156,8 +143,8 @@ SITE_ID = 2
 LOGIN_REDIRECT_URL = 'index-url'
 LOGOUT_REDIRECT_URL = 'login-url'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '792808238076-kafku66hsemkt24bc607lsis7k8d38rn.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81KSZ3CURrl3_uggMoXs8e3v'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1051886366672-gaaon69k2gkbl0ppb4e7r3gq9d3ges3u.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 LOGIN_URL = 'login-url'
 LOGOUT_URL = 'logout-url'
